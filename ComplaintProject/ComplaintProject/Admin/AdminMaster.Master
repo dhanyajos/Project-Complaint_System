@@ -1,0 +1,34 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminMaster.master.cs" Inherits="ComplaintProject.AdminMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <link href="../Guest/css/mystyle.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+
+<body style="background-color: #FFB6C1;">
+    <nav class="nav" style="background-color: darkblue; width: 100%; top: 0; position: fixed;">
+        <ul>
+            <li><a href="adminhome.aspx">Home</a></li>
+            <li><a href="UserList.aspx">User Details</a></li>
+            <li><a href="ProductDetails.aspx">Product Details</a></li>
+            <li><a href="CmpViewAdmin.aspx">Complaint Details</a></li>
+            <li><a href="viewQuery.aspx">Query Details</a></li>
+            <li><a href="../Guest/Home.aspx">Logout</a></li>
+        </ul>
+    </nav>
+    <div>
+        <asp:ContentPlaceHolder ID="ContentBody" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+
+
+    <div class="footer" style="background-color: darkblue;">
+        <p>Copyright &copy; 2016 Complaint System</p>
+    </div>
+</body>
+</html>
