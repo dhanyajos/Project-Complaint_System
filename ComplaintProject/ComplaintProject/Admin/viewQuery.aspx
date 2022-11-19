@@ -7,7 +7,7 @@
     <h2>Raise a Query</h2>
     <form id="form1" runat="server">
         <h2 style="margin-top: 50px;">Query Details</h2>
-        <asp:GridView ID="GridView1" runat="server" DataKeyNames="user_phnno" CellPadding="4" ForeColor="Black" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellSpacing="2" AutoGenerateColumns="False">
+        <asp:GridView ID="GridView1" runat="server" DataKeyNames="user_phnno" CellPadding="4" ForeColor="Black" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellSpacing="2" AutoGenerateColumns="False" OnRowCancelingEdit="GridView1_RowCancelingEdit">
             <Columns>
 
                 <asp:BoundField DataField="product" HeaderText="Product Name" />

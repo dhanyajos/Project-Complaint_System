@@ -47,5 +47,13 @@ namespace ComplaintProject.Admin
 
 
         }
+
+        protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            
+            GridView1.EditIndex = -1;
+            GridView1.DataSource = objdptbl.viewComplaints();
+            GridView1.DataBind();
+        }
     }
 }

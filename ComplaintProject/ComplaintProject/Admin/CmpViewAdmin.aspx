@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentBody" runat="server">
     <form id="form1" runat="server">
         <h2 style="margin-top: 100px;">Complaint Details</h2>
-        <asp:GridView ID="GridView1" runat="server" DataKeyNames="user_phnno" CellPadding="4" ForeColor="Black" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellSpacing="2" AutoGenerateColumns="False">
+        <asp:GridView ID="GridView1" runat="server" DataKeyNames="user_phnno" CellPadding="4" ForeColor="Black" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellSpacing="2" AutoGenerateColumns="False" OnRowCancelingEdit="GridView1_RowCancelingEdit">
             <Columns>
                 <asp:BoundField DataField="cmpdate" HeaderText="Complaint Date" DataFormatString="{0:dd/MM/yyyy}" />
                 <asp:BoundField DataField="product" HeaderText="Product Name" />
