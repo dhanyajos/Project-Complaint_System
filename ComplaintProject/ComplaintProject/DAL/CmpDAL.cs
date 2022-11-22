@@ -64,7 +64,7 @@ namespace ComplaintProject.DAL
         public DataTable view_complaints(BAL.CmpBAL obj)
         {
 
-            string qry = "select  c.cmpdate,c.user_id,p.product,u.user_name,u.user_phnno, c.cmpmsg, c.cmpstatus from Product p  INNER JOIN CompReg c  ON p.productid = c.productid INNER JOIN UserReg u ON u.user_id =c.user_id";
+            string qry = "select  c.cmpdate,c.cmp_id,p.product,u.user_name,u.user_phnno, c.cmpmsg, c.cmpstatus from Product p  INNER JOIN CompReg c  ON p.productid = c.productid INNER JOIN UserReg u ON u.user_id =c.user_id ORDER BY cmp_id DESC;";
 
             SqlCommand cmd = new SqlCommand(qry, Getcon());
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -74,11 +74,10 @@ namespace ComplaintProject.DAL
 
         }
 
-
-
         public int Update_Status(BAL.CmpBAL obj)
         {
-            string s = "update CompReg  set cmpstatus='" + obj.cmpsts + "' where user_id=(SELECT user_id FROM UserReg WHERE user_phnno='" + obj.user_phone + "')";
+             string s = "update CompReg  set cmpstatus='" + obj.cmpsts + "' where cmp_id='" + obj.cmpid+ "'";
+
             SqlCommand cmd = new SqlCommand(s, Getcon());
             return cmd.ExecuteNonQuery();
         }
@@ -96,6 +95,5 @@ namespace ComplaintProject.DAL
 
         }
 
-      
     }
 }

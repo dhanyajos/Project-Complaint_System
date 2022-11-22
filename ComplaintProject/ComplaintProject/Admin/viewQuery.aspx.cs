@@ -29,10 +29,10 @@ namespace ComplaintProject.Admin
 
         protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            string user_phone = GridView1.DataKeys[e.RowIndex].Value.ToString();
+            int id = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Value.ToString());
             TextBox txt = new TextBox();
-            txt = (TextBox)GridView1.Rows[e.RowIndex].Cells[4].Controls[0];
-            objdptbl.user_phone = user_phone;
+            txt = (TextBox)GridView1.Rows[e.RowIndex].Cells[5].Controls[0];
+            objdptbl.queryid = id.ToString();
             objdptbl.queryreply = txt.Text;
             int i = objdptbl.giveReply();
             GridView1.EditIndex = -1;

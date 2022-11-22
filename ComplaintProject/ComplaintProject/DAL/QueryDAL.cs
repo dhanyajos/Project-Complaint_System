@@ -52,7 +52,7 @@ namespace ComplaintProject.DAL
 
         public DataTable view_query(BAL.QueryBAL obj)
         {
-            string qry= "SELECT p.product,u.user_name,u.user_phnno, c.querymsg, c.reply from Product p  INNER JOIN Userquery c  ON p.productid = c.productid INNER JOIN UserReg u ON u.user_id = c.user_id";
+            string qry= "SELECT c.queryid,p.product,u.user_name,u.user_phnno, c.querymsg, c.reply from Product p  INNER JOIN Userquery c  ON p.productid = c.productid INNER JOIN UserReg u ON u.user_id = c.user_id order by queryid desc";
             SqlCommand cmd = new SqlCommand(qry, Getcon());
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -63,7 +63,7 @@ namespace ComplaintProject.DAL
 
         public int give_reply(BAL.QueryBAL obj)
         {
-            string s = "update Userquery  set reply='" + obj.queryreply + "' where user_id=(SELECT user_id FROM UserReg WHERE user_phnno='" + obj.user_phone + "')";
+            string s = "update Userquery  set reply='" + obj.queryreply + "' where queryid='" + obj.queryid + "'";
           
             SqlCommand cmd = new SqlCommand(s, Getcon());
             return cmd.ExecuteNonQuery();

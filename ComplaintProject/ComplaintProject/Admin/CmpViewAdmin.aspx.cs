@@ -23,7 +23,6 @@ namespace ComplaintProject.Admin
         }
 
 
-
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {
             GridView1.EditIndex = e.NewEditIndex;
@@ -35,10 +34,11 @@ namespace ComplaintProject.Admin
 
         protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            string user_phone = GridView1.DataKeys[e.RowIndex].Value.ToString();
+
+            int id = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Value.ToString());
             TextBox txt = new TextBox();
-            txt = (TextBox)GridView1.Rows[e.RowIndex].Cells[5].Controls[0];
-            objdptbl.user_phone = user_phone;
+            txt = (TextBox)GridView1.Rows[e.RowIndex].Cells[6].Controls[0];
+            objdptbl.cmpid = id.ToString();
             objdptbl.cmpsts = txt.Text;
             int i = objdptbl.updateStatus();
             GridView1.EditIndex = -1;
@@ -50,10 +50,12 @@ namespace ComplaintProject.Admin
 
         protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
-            
+
             GridView1.EditIndex = -1;
             GridView1.DataSource = objdptbl.viewComplaints();
             GridView1.DataBind();
         }
+
+
     }
 }

@@ -7,7 +7,7 @@
         <form id="form1" runat="server">
             <center>
 
-                <div class="panel" style="width: 700px; height: 300px; background-color: darkblue; margin-top: 200px">
+                <div class="panel" style="width: 800px; height: 300px; background-color: darkblue; margin-top: 200px">
                      <h2 style="text-align:center;color:white;">Sign In</h2>
                     <table>
                         <tr>
